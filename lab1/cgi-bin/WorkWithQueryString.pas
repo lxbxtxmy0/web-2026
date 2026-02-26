@@ -3,27 +3,31 @@ USES
   DOS;  
 VAR
   QueryString: STRING;  
+
 FUNCTION GetQueryStringParameter(Key: STRING): STRING;
 VAR
   StartPos, EndPos: INTEGER;
-  SupStr: STRING;  
-BEGIN
-  StartPos := Pos(Key + '=', QueryString);
-  IF StartPos > 0
+  SupStr: STRING;                                    
+BEGIN                           
+  StartPos := POS('&' + Key + '=', QueryString); 
+  IF StartPos > 0 
   THEN
     BEGIN
-      StartPos := StartPos + Length(Key + '=');
-      SupStr := Copy(QueryString, StartPos, Length(QueryString));
-      EndPos := Pos('&', SupStr);
-      IF EndPos > 0 THEN
-        GetQueryStringParameter := Copy(SupStr, 1, EndPos - 1)
+      StartPos := StartPos + LENGTH(Key) + 2;
+      SupStr := COPY(QueryString, StartPos);
+      EndPos := POS('&', SupStr);      
+      IF EndPos > 0
+      THEN
+        GetQueryStringParameter := COPY(QueryString, StartPos, EndPos - 1)
       ELSE
-        GetQueryStringParameter := SupStr
+        GetQueryStringParameter := COPY(QueryString, StartPos)
     END
+  ELSE
+    GetQueryStringParameter := ''
 END; 
 
 BEGIN 
-  QueryString := GetEnv('QUERY_STRING');
+  QueryString := '&' + GetEnv('QUERY_STRING');
   WRITELN('Content-Type: text/plain');
   WRITELN;
   WRITELN('First Name: ', GetQueryStringParameter('first_name'));
