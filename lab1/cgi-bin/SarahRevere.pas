@@ -25,5 +25,5 @@ BEGIN {SarahRevere}
       THEN
         WRITELN('The British are coming by sea.')
       ELSE
-        WRITELN('The North Church shows only ''', Lanterns, '''.');
+        WRITELN('The North Church shows only ' ');
 END. {SarahRevere}
