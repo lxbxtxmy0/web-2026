@@ -3,22 +3,26 @@ USES
   DOS;
 VAR
   QueryString, Name: STRING;
-  PosName, Next: INTEGER;
+  PosName, AmpPos: INTEGER;
 BEGIN
   WRITELN('Content-Type: text/plain');
-  WRITELN;
+  WRITELN;  
   QueryString := GetEnv('QUERY_STRING');
-  PosName := POS('name=', QueryString);
-  IF PosName = 1
+  PosName := POS('name=', QueryString);  
+  IF PosName > 0
   THEN
     BEGIN
-      Next := POS('&', QueryString);
-      IF Next > 0
-      THEN 
-        Name := COPY(QueryString, PosName + 5, Next - (PosName + 5))
+      AmpPos := POS('&', COPY(QueryString, PosName + 5, LENGTH(QueryString)));
+      IF AmpPos > 0 
+      THEN
+        Name := COPY(QueryString, PosName + 5, AmpPos - 1)
       ELSE
-        Name := COPY(QueryString, PosName + 5);
-      WRITELN('Hello dear, ', Name, '!')
+        Name := COPY(QueryString, PosName + 5);      
+      IF Name <> ''
+      THEN
+        WRITELN('Hello dear, ', Name, '!')
+      ELSE
+        WRITELN('Hello Anonymous!')
     END
   ELSE
     WRITELN('Hello Anonymous!')  
