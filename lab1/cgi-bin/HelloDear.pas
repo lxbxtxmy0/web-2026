@@ -3,16 +3,21 @@ USES
   DOS;
 VAR
   QueryString, Name: STRING;
-  PosName: INTEGER;
+  PosName, Next: INTEGER;
 BEGIN
   WRITELN('Content-Type: text/plain');
   WRITELN;
   QueryString := GetEnv('QUERY_STRING');
   PosName := POS('name=', QueryString);
-  IF PosName <> 0
+  IF PosName = 1
   THEN
     BEGIN
-      Name := COPY(QueryString, PosName + 5);
+      Next := POS('&', QueryString);
+      IF Next > 0
+      THEN 
+        Name := COPY(QueryString, PosName + 5, Next - (PosName + 5))
+      ELSE
+        Name := COPY(QueryString, PosName + 5);
       WRITELN('Hello dear, ', Name, '!')
     END
   ELSE
