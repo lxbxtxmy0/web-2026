@@ -1,0 +1,43 @@
+a {
+    text-decoration: none;
+}
+
+.avatar {
+    display: block;
+    border-radius: 16px;
+}
+
+main {
+    font-family: Golos UI, Arial, sans-serif;
+}
+
+.count-posts {
+    border-radius: 6px;
+    background-color: #F2F3F5;
+    width: 101px;
+    height: 30px;
+}
+
+.profile-info {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    text-align: center;
+    width: 361px;
+    height: 36px;
+    
+}
+
+.nick-name {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.25px;
+    text-align: center;
+    height: 32px;
+}
+
+.photos {
+    padding-top: 250px;
+}

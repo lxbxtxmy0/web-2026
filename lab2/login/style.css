@@ -1,0 +1,69 @@
+.login {
+    font-family: 'Golos Text', Arial, sans-serif;
+}
+
+.continue-button {
+    width: 100%;
+    height: 48px;
+    border-radius: 10px;
+    border: none;
+    background-color: #222222;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.hide-password {
+    border: none;
+    background: none;
+    width: 24px;
+    height: 24px;
+}
+
+
+.login-block {
+    width: 343px;
+    height: 251px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: -0.15px;
+}
+
+.email-block {
+    height: 88px;
+    width: 100%;
+}
+
+.password-block {
+    height: 67px;
+    width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    height: 44px;
+    background-color: #F2F3F5;
+    border: none;
+    border-radius: 10px;   
+}
+
+.email-format {
+    width: 100%;
+    height: 16px;
+    color: #808080;
+    letter-spacing: -0.08px;
+}
+
+.login-text {
+    font-weight: 700;
+    font-size: 140px;
+    line-height: 180px;
+    letter-spacing: -1.5px;
+}
+
+.field-block {
+    width: 100%;
+    height: 171px;
+}
