@@ -1,5 +1,5 @@
 .login {
-    font-family: 'Golos Text', Arial, sans-serif;
+    font-family: 'Golos text', Arial, sans-serif;
 }
 
 .continue-button {
@@ -23,7 +23,6 @@
 
 .login-block {
     width: 343px;
-    height: 251px;
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
@@ -31,12 +30,10 @@
 }
 
 .email-block {
-    height: 88px;
     width: 100%;
 }
 
 .password-block {
-    height: 67px;
     width: 100%;
 }
 
