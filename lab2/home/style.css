@@ -16,7 +16,6 @@ a {
 .first-post {
     width: 100%;
     height: 700px;
-    font-weight: 400;
     font-size: 15px;
     line-height: 18px;
     letter-spacing: -0.15px;
@@ -53,6 +52,7 @@ a {
 }
 
 .more {
+    /* узнать hex */
     color: #808080;
 }
 

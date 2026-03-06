@@ -25,8 +25,7 @@ main {
     letter-spacing: -0.15px;
     text-align: center;
     width: 361px;
-    height: 36px;
-    
+
 }
 
 .nick-name {
@@ -38,6 +37,3 @@ main {
     height: 32px;
 }
 
-.photos {
-    padding-top: 250px;
-}
