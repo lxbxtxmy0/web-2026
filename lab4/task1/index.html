@@ -7,7 +7,7 @@
 <body>
     <form action="action.php" method="post">
         <label for="year_input">Введите год:</label>
-        <input type="number" id="year_input" name="year" required>
+        <input type="number" id="year_input" name="year" min="0" max="30000" required>
         <button type="submit">Проверить на високосный год</button>
     </form>
 </body>
