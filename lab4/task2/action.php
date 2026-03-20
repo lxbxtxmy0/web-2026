@@ -23,7 +23,7 @@ function DigitToWord(string $digit): string {
 $word = DigitToWord($digit);
 
 if ($word === '0') {
-    echo 'Вы ввели не число';
+    echo 'Вы ввели не цифру';
 } else {
     echo $word;
 }
