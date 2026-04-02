@@ -1,0 +1,60 @@
+button {
+    border: none;
+    background: none;
+}
+
+main {
+    width: 474px;
+    height: 1338px;
+    font-family: 'Golos text', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.post {
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+}
+
+.head-of-post {
+    width: 100%;
+}
+
+.name-text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.likes {
+    background-color: rgba(22, 22, 22, 0.05);
+    border-radius: 8px;
+    width: 68px;
+    height: 30px;
+}
+
+.description {
+    color: #222222;
+}
+
+.post-time {
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(22, 22, 22, 0.5)
+}
+
+.more {
+    /* узнать hex */
+    color: #808080;
+}
+
+.avatar {
+    border-radius: 6px;
+}
+
