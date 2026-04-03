@@ -1,4 +1,12 @@
 <?php
+function protection(string $data): string {
+    for ($i = 0; $i < strlen($data); $i++) {
+        if ($data[$i] === '/' || $data[$i] === "\\") {
+            $data[$i] = '&';
+        }
+    }
+    return $data;
+}
 
 $method = $_SERVER['REQUEST_METHOD'] ?? null;
 if ($method != 'POST') {
@@ -10,24 +18,27 @@ if ($contentType != 'application/json') {
     echo 'invalid input' . PHP_EOL;
     exit;
 }
-//rename
-$jsonFileData = file_get_contents('php://input');
-if ($jsonFileData === false) {
-    echo 'invalid input' . PHP_EOL;
-    exit;
-}
-$data = json_decode($jsonFileData, true);
-if ($data === null) {
+
+$inputData = file_get_contents('php://input');
+if ($inputData === false) {
     echo 'invalid input' . PHP_EOL;
     exit;
 }
 
-$imageName = $data['image_name'] ?? null;
-$imageDescription = $data['image'] ?? null;
+$jsonData = json_decode($inputData, true);
+if ($jsonData === null) {
+    echo 'invalid input' . PHP_EOL;
+    exit;
+}
+
+$imageName = $jsonData['image_name'] ?? null;
+$imageDescription = $jsonData['image'] ?? null;
+
+$imageName = protection($imageName);
 
 if ($imageDescription === null || $imageName === null) {
     echo 'invalid input' . PHP_EOL;
-    exit;4
+    exit;
 }
 
 $decodedImage = base64_decode($imageDescription);
@@ -39,6 +50,5 @@ if ($decodedImage === false) {
 $filePath = "static/$imageName.png";
 
 file_put_contents($filePath, $decodedImage);
-
-
-
+echo 'image saved' . PHP_EOL;
+//добавить функции

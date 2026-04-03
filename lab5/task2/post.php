@@ -1,13 +1,15 @@
-<?php require_once "data.php"; ?>
+<?php require_once "data.php";
+// вынести
+?>
 
 <?php
 $postId = $_GET['postId'] ?? null;
 if ($postId == null) {
     echo 'invalid request' . PHP_EOL;
     exit;
-} else {
-    $postId = (int)$postId;
 }
+$postId = (int)$postId;
+
 
 $currentPost = null;
 
@@ -19,10 +21,10 @@ foreach ($posts as $post) {
 }
 
 if ($currentPost == null) {
-    echo 'invalid id' . PHP_EOL;
+    echo 'error 404'  . PHP_EOL;
     exit;
 }
-
+// *отдавать статус 404
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +72,7 @@ if ($currentPost == null) {
                 <?= $currentPost['description'] ?>
             </p>
         <?php endif; ?>
-        <?php if (!empty($currentPost['post_time'])): ?>
+        <?php if (isset($currentPost['post_time'])): ?>
             <span class="post-time">
         <?= date('d.m.Y H:i', $currentPost['post_time']) ?>
             </span>

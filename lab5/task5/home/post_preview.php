@@ -1,6 +1,6 @@
 <div class="post">
     <div class="head-of-post">
-        <img src="<?= $post['avatar_modifier'] ?>" alt="Аватар" height="32" width="32" class="avatar">
+        <img src="<?= $post['avatar_image'] ?>" alt="Аватар" height="32" width="32" class="avatar">
         <p class="name-text"><?= $post['author'] ?></p>
         <?php if ($post['can_edit']): ?>
             <button>
@@ -9,9 +9,8 @@
         <?php endif; ?>
     </div>
     <div>
-        <a title="<?= $post['title'] ?>" href="post.php?postId=<?= $post['id'] ?>">
-            <img src="<?= $post['img_modifier'] ?>" alt="<?= $post['img_alt'] ?>" height="474" width="474">
-        </a>
+        <img src="<?= $post['images'][0] ?>" alt="<?= $post['img_alt'] ?>" height="474"
+             width="474">
         <?php if ($post['has_count']): ?>
             <span>1 / 3</span>
             <button>
@@ -30,12 +29,12 @@
     <?php endif; ?>
     <?php if ($post['description'] != ''): ?>
         <p class="description">
-            <?= $post['description'] ?><span class="more">ещё</span>
+            <?= $post['description'] ?>
         </p>
     <?php endif; ?>
-    <?php if (!empty($post['post_time'])): ?>
+    <?php if (isset($post['post_time'])): ?>
         <span class="post-time">
         <?= date('d.m.Y H:i', $post['post_time']) ?>
-    </span>
+            </span>
     <?php endif; ?>
 </div>

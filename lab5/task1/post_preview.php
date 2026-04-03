@@ -31,7 +31,7 @@
             <?= $post['description'] ?><span class="more">ещё</span>
         </p>
     <?php endif; ?>
-    <?php if (!empty($post['post_time'])): ?>
+    <?php if (isset($post['post_time'])): ?>
         <span class="post-time">
         <?= date('d.m.Y H:i', $post['post_time']) ?>
     </span>

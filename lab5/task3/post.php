@@ -5,10 +5,9 @@ $postId = $_GET['postId'] ?? null;
 if ($postId == null) {
     echo 'invalid request' . PHP_EOL;
     exit;
-} else {
-    $postId = (int)$postId;
 }
 
+$postId = (int)$postId;
 $currentPost = null;
 
 foreach ($posts as $post) {
@@ -22,7 +21,11 @@ if ($currentPost == null) {
     echo 'invalid id' . PHP_EOL;
     exit;
 }
+?>
 
+<?php function protection($value): string {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@ if ($currentPost == null) {
 <main>
     <div class="post">
         <div class="head-of-post">
-            <p><?= $postId ?></p>
+            <p>Пост <?= protection($postId) ?></p>
             <img src="<?= $currentPost['avatar_modifier'] ?>" alt="Аватар" height="32" width="32" class="avatar">
             <p class="name-text"><?= $currentPost['author'] ?></p>
             <?php if ($currentPost['can_edit']): ?>
@@ -71,7 +74,7 @@ if ($currentPost == null) {
                 <?= $currentPost['description'] ?>
             </p>
         <?php endif; ?>
-        <?php if (!empty($currentPost['post_time'])): ?>
+        <?php if (isset($currentPost['post_time'])): ?>
             <span class="post-time">
         <?= date('d.m.Y H:i', $currentPost['post_time']) ?>
             </span>
