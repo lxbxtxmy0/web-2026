@@ -32,18 +32,18 @@ button {
     background: none;
 }
 
-
 body {
-    display: flex;
+    display: grid;
+    grid-template-columns: 72px 1fr;
 }
 
+
 nav {
+    grid-column-start: 1;
     width: 72px;
+    height: 100vh;
     position: fixed;
     padding-top: 40px;
-    top: 0;
-    left: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,8 +53,7 @@ nav {
 
 
 main {
-    margin-left: 72px;
-    padding-right: 72px;
+    grid-column-start: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,10 +67,10 @@ main {
     flex-direction: column;
     gap: 16px;
     width: 474px;
+    padding-top: 16px;
 }
 
-.header_of_post {
-    margin-top: 16px;
+.header_of_post {;
     display: flex;
     justify-content: space-between;
 }
