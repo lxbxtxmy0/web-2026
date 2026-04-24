@@ -1,0 +1,3 @@
+function mapObject(obj, callback) {
+
+}
