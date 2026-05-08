@@ -8,49 +8,53 @@ function isPrime(n) {
     return true;
 }
 
-function isPrimeNumber(input) {
-    if (Number.isFinite(input)) {
-        let result = input;
-        if (isPrime(input)) {
-            result += ' простое число';
-        } else {
-            result += ' не простое число';
+function processSingleValue(input) {
+    let result = input;
+    if (isPrime(input)) {
+        result += ' простое число';
+    } else {
+        result += ' не простое число';
+    }
+    console.log(result);
+}
+
+function formatResultString(primes, notPrimes) {
+    let result = '';
+    if (primes.length > 0) {
+        result += primes.join(', ');
+        result += primes.length === 1 ? ' простое число; ' : ' простые числа; ';
+    }
+    if (notPrimes.length > 0) {
+        result += notPrimes.join(', ');
+        result += notPrimes.length === 1 ? ' непростое число' : ' непростые числа';
+    }
+    console.log(result);
+}
+
+function processArray(input) {
+    const primes = [];
+    const notPrimes = [];
+    for (let elt of input) {
+        if (!Number.isFinite(elt)) {
+            console.log('Ошибка: элемент массива не является числом');
+            return;
         }
-        console.log(result);
+        if (isPrime(elt)) {
+            primes.push(elt);
+        } else {
+            notPrimes.push(elt);
+        }
+    }
+    formatResultString(primes, notPrimes);
+}
+
+function checkPrime(input) {
+    if (Number.isFinite(input)) {
+        processSingleValue(input);
         return;
     }
     if (Array.isArray(input)) {
-        const primes = [];
-        const notPrimes = [];
-        for (let elt of input) {
-            if (!Number.isFinite(elt)) {
-                console.log('Ошибка: элемент массива не является числом');
-                return;
-            }
-            if (isPrime(elt)) {
-                primes.push(elt);
-            } else {
-                notPrimes.push(elt);
-            }
-        }
-        let result = '';
-        if (primes.length > 0) {
-            result += primes.join(', ');
-            if (primes.length === 1) {
-                result += ' простое число; ';
-            } else {
-                result += ' простые числа; ';
-            }
-        }
-        if (notPrimes.length > 0) {
-            result += notPrimes.join(', ');
-            if (notPrimes.length === 1) {
-                result += ' непростое число';
-            } else {
-                result += ' непростые числа';
-            }
-        }
-        console.log(result);
+        processArray(input);
         return;
     }
     console.log('Ошибка: параметр должен быть числом или массивом чисел');
