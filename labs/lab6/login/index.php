@@ -9,7 +9,7 @@
 <div class="page">
     <div class="welcome_side">
         <h1>Войти</h1>
-        <img src="img/welcome.png" alt="welcome" height="501" width="462">
+        <img src="img/welcome.png" alt="welcome" class="welcome_img">
     </div>
     <form class="login">
         <div class="email">
@@ -21,7 +21,7 @@
             <label for="password-field">Пароль</label>
             <input type="password" class="input-field" id="password-field">
             <button class="hide_password">
-                <img src="img/eye_off.svg" alt="Скрыть пароль" height="24" width="24">
+                <img src="img/eye_off.svg" alt="Скрыть пароль" class="img_eye_off">
             </button>
         </div>
         <button class="continue">Продолжить</button>

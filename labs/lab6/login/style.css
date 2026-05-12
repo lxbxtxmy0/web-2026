@@ -41,7 +41,6 @@ button {
 
 .login {
     justify-self: start;
-    grid-column-start: 2;
     width: 343px;
     display: grid;
     height: 251px;
@@ -111,8 +110,17 @@ h1 {
 
 .welcome_side {
     justify-self: end;
-    grid-column-start: 1;
     position: relative;
-    width: 462px;
+    width: 501px;
     height: 501px;
+}
+
+
+.img_eye_off {
+    width: 24px;
+    height: 24px;
+}
+.welcome_img {
+    width: 100%;
+    height: 100%;
 }

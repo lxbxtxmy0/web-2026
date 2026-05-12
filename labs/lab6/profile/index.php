@@ -30,28 +30,28 @@ $profile = [
 <div class="page">
     <nav>
         <a href="../home" title="Домашняя страница">
-            <img src="img/menu_icon_home.svg" alt="Домашняя страница" height="40" width="40">
+            <img src="img/menu_icon_home.svg" alt="Домашняя страница" class="menu_icon">
         </a>
         <a href="#" title="Мой профиль">
-            <img src="img/menu_icon_is_profile.svg" alt="Мой профиль" height="40" width="40">
+            <img src="img/menu_icon_is_profile.svg" alt="Мой профиль" class="menu_icon">
         </a>
         <a href="#" title="Добавить публикацию">
-            <img src="img/menu_icon_add.svg" alt="Добавить публицаию" height="40" width="40">
+            <img src="img/menu_icon_add.svg" alt="Добавить публицаию" class="menu_icon">
         </a>
     </nav>
     <main>
         <div class="header">
-            <img src="<?= $profile['avatar_image'] ?>" alt="Аватар" height="123" width="123" class="avatar">
+            <img src="<?= $profile['avatar_image'] ?>" alt="Аватар" class="avatar">
             <h1 class="name"><?= $profile['full_name'] ?></h1>
             <p class="description"><?= $profile['description'] ?></p>
             <div class="count_of_posts">
-                <img src="img/image_icon.svg" alt="Иконка фото" width="16" height="16">
+                <img src="img/image_icon.svg" alt="Иконка фото" class="photo_icon">
                 <span><?= $profile['count_of_posts'] ?> поста</span>
             </div>
         </div>
         <div class="photos">
             <?php foreach ($profile['posts'] as $post): ?>
-                <img src="<?= $post[0] ?>" alt="<?= $post[1] ?>" width="300" height="300">
+                <img src="<?= $post[0] ?>" alt="<?= $post[1] ?>" class="post_photo">
             <?php endforeach; ?>
         </div>
     </main>
