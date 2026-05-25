@@ -1,7 +1,7 @@
 CREATE TABLE images
 (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    source VARCHAR(2000) NOT NULL,
+    image_source VARCHAR(255) NOT NULL,
     sort_order INT NOT NULL DEFAULT 0,
     post_id INT NOT NULL,
     CONSTRAINT posts_id_fk

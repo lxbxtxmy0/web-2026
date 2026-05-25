@@ -12,6 +12,5 @@ function getNames(users) {
     }
     const result = users.map(user => user?.name || 'noname');
     console.log(result);
-
 }
 getNames(users);

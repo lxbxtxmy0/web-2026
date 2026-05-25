@@ -27,13 +27,12 @@ function fetchPostById(PDO $connection, int $postId): ?array
 
 function fetchImagesByPostId(PDO $connection, int $postId): array
 {
-    $sql = "SELECT image_source FROM image WHERE post_id = :id ORDER BY sort_order";
+    $sql = "SELECT image_source, sort_order FROM image WHERE post_id = :id ORDER BY sort_order";
     $stmt = $connection->prepare($sql);
     $stmt->execute(['id' => $postId]);
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return array_column($rows, 'image_source');
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-// fetch -> list
+
 function fetchAllPosts(PDO $connection): array
 {
     $sql = <<<SQL
@@ -50,7 +49,7 @@ function fetchAllPosts(PDO $connection): array
 
 function fetchAllImages(PDO $connection): array
 {
-    $sql = "SELECT post_id, image_source FROM image ORDER BY sort_order";
+    $sql = "SELECT post_id, image_source, sort_order FROM image ORDER BY sort_order";
     $stmt = $connection->query($sql);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -84,6 +83,7 @@ function findPostInDatabase(PDO $connection, int $postId): ?array
     return formatPostData($postData, $images);
 }
 
+
 function getFeedPosts(PDO $connection): array
 {
     $postsData = fetchAllPosts($connection);
@@ -91,18 +91,18 @@ function getFeedPosts(PDO $connection): array
         return [];
     }
 
-    $allImages = fetchAllImages($connection);
-
-    $imagesByPost = [];
+    $allImages = fetchAllImages($connection); $imagesByPost = [];
     foreach ($allImages as $img) {
-        $imagesByPost[$img['post_id']][] = $img['image_source'];
+        $imagesByPost[$img['post_id']][] = [
+            'image_source' => $img['image_source'],
+            'sort_order'   => $img['sort_order']
+        ];
     }
 
     $feed = [];
     foreach ($postsData as $postData) {
         $postId = $postData['id'];
         $postImages = $imagesByPost[$postId] ?? [];
-
         $feed[] = formatPostData($postData, $postImages);
     }
 
