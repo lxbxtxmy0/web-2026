@@ -7,19 +7,19 @@
 
 @font-face {
     font-family: 'MyGolos';
-    src: url('../fonts/golos-ui_bold.ttf') format('truetype');
+    src: url('../src/fonts/golos-ui_bold.ttf') format('truetype');
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'MyGolos';
-    src: url('../fonts/golos-ui_medium.ttf') format('truetype');
+    src: url('../src/fonts/golos-ui_medium.ttf') format('truetype');
     font-weight: 500;
 }
 
 @font-face {
     font-family: 'MyGolos';
-    src: url('../fonts/golos-ui_regular.ttf') format('truetype');
+    src: url('../src/fonts/golos-ui_regular.ttf') format('truetype');
     font-weight: 400;
 }
 
@@ -109,7 +109,7 @@ main {
     top: 222px;
     left: 16px;
     border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(13px);
 }
 
@@ -159,7 +159,27 @@ main {
     font: 400 15px/18px 'MyGolos', Arial, sans-serif;
     letter-spacing: -0.15px;
     color: #222222;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
+
+.description.active {
+    -webkit-line-clamp: unset;
+}
+
+.more {
+    display: none;
+    font: 400 15px/18px 'MyGolos', Arial, sans-serif;
+    letter-spacing: -0.15px;
+    color: #808080;
+}
+
+.more.active {
+    display: inline;
+}
+
 
 .time {
     font: 400 14px/18px 'MyGolos', Arial, sans-serif;
@@ -208,7 +228,7 @@ main {
     top: 307px;
     left: 16px;
     border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(13px);
 }
 .modal_slider_right {
@@ -218,17 +238,16 @@ main {
     right: 16px;
     top: 307px;
     border-radius: 999px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(13px);
 }
-
 
 .close_button {
     width: 36px;
     height: 36px;
     align-self: flex-end;
-
 }
+
 .modal_count_photos {
     align-self: center;
     font: 500 13px/18px 'MyGolos', Arial, sans-serif;

@@ -6,18 +6,19 @@
     <title>Home</title>
     <script src="slider.js"></script>
     <script src="modalWindow.js"></script>
+    <script src="buttonMore.js"></script>
 </head>
 <body>
 <div class="page">
     <nav>
         <a href="#" title="Домашняя страница">
-            <img src="img/menu_icon_is_home.svg" alt="Домашняя страница" height="40" width="40">
+            <img src="../src/img/menu_icon_is_home.svg" alt="Домашняя страница" height="40" width="40">
         </a>
         <a href="../profile" title="Мой профиль">
-            <img src="img/menu_icon_profile.svg" alt="Мой профиль" height="40" width="40">
+            <img src="../src/img/menu_icon_profile.svg" alt="Мой профиль" height="40" width="40">
         </a>
-        <a href="#" title="Добавить публикацию">
-            <img src="img/menu_icon_add.svg" alt="Добавить публикацию" height="40" width="40">
+        <a href="../createpost" title="Добавить публикацию">
+            <img src="../src/img/menu_icon_add.svg" alt="Добавить публикацию" height="40" width="40">
         </a>
     </nav>
     <main>
@@ -29,15 +30,15 @@
 <div class="modal_window">
     <div class="post_window">
         <button class="close_button">
-            <img src="img/close_window.svg" alt="закрыть">
+            <img src="../src/img/close_window.svg" alt="закрыть">
         </button>
         <div class="photo">
             <div class="photos"></div>
             <button class="modal_slider_left">
-                <img src="img/left_button.svg" alt="Предыдущее фото" height="20" width="20">
+                <img src="../src/img/left_button.svg" alt="Предыдущее фото" height="10" width="10">
             </button>
             <button class="modal_slider_right">
-                <img src="img/right_button.svg" alt="Следуещее фото" height="20" width="20">
+                <img src="../src/img/right_button.svg" alt="Следуещее фото" height="10" width="10">
             </button>
         </div>
         <span class="modal_count_photos"></span>

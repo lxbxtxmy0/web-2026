@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+}
+
+
+nav {
+    width: 72px;
+    height: 100vh;
+    position: fixed;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid rgba(22, 22, 22, 0.05);
+    gap: 16px;
+}
+
+
+main {
+    grid-column: 2;
+    justify-self: center;
+}
+
+.create_post {
+    margin-top: 50px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.post_container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.add_photo_field {
+    background-color: #F2F3F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 474px;
+    height: 474px;
+}
+
+.add_photo_block {
+    width: 143px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.add_button {
+    border-radius: 10px;
+    background: #222222;
+    width: 100%;
+    color: #FFFFFF;
+    font: 500 16px/16px 'MyGolos', Arial, sans-serif;
+    height: 48px;
+}
+
+textarea {
+    display: block;
+}
+
+.add_photo {
+    width: 150px;
+    font: 400 13px/15px 'MyGolos', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #3F8AE0;
+}
+
+.share {
+    width: 140px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: #B4B4B4;
+    color: #FFFFFF;
+    font: 400 16px/16px 'MyGolos', Arial, sans-serif;
+}
+
+.description_field {
+    border: none;
+    resize: none;
+    outline: none;
+    height: 120px;
+    max-height: 300px;
+    min-height: 120px;
+}
+
+.hidden_input {
+    display: none;
+}
+
+textarea::placeholder {
+    font: 400 15px/18px 'MyGolos', Arial, sans-serif;
+}
+
+.img_icon {
+    font-size: 81px;
+}
+
+.preview_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.preview_img.active {
+    display: block;
+}
+
+.slider_left.active {
+    display: block;
+}
+
+.slider_right.active {
+    display: block;
+}
+
+.slider_left {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 222px;
+    left: 16px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(13px);
+    display: none;
+}
+
+.slider_right {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 222px;
+    right: 16px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(13px);
+    display: none;
+}
+
+
+.share.active {
+    background: #222222;
+}

@@ -1,36 +1,13 @@
 <?php
 
+
+
 function connectDatabase(): PDO
 {
     $dsn = 'mysql:host=localhost;dbname=blog;charset=utf8mb4';
     $user = 'root';
     $password = 'VasAnt2006';
     return new PDO($dsn, $user, $password);
-}
-
-function fetchPostById(PDO $connection, int $postId): ?array
-{
-    $sql = <<<SQL
-        SELECT 
-            p.id, p.description, p.count_likes, p.published_at,
-            u.id AS user_id, u.first_name, u.last_name, u.avatar_source
-        FROM post p 
-          INNER JOIN user u ON p.user_id = u.id
-        WHERE p.id = :id
-    SQL;
-
-    $stmt = $connection->prepare($sql);
-    $stmt->execute(['id' => $postId]);
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $row ?: null;
-}
-
-function fetchImagesByPostId(PDO $connection, int $postId): array
-{
-    $sql = "SELECT image_source, sort_order FROM image WHERE post_id = :id ORDER BY sort_order";
-    $stmt = $connection->prepare($sql);
-    $stmt->execute(['id' => $postId]);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function fetchAllPosts(PDO $connection): array
@@ -56,33 +33,20 @@ function fetchAllImages(PDO $connection): array
 
 function formatPostData(array $dbRow, array $images): array
 {
+    //временно
+    $userId = 1;
     return [
         'id' => $dbRow['id'],
         'author' => $dbRow['first_name'] . ' ' . $dbRow['last_name'],
         'avatar_image' => $dbRow['avatar_source'],
-        'profile_link' => 'profile.php?id=' . $dbRow['user_id'],
-        'can_edit' => false,
+        'can_edit' => ($userId == $dbRow['user_id']),
         'count_likes' => $dbRow['count_likes'],
         'description' => $dbRow['description'],
         'post_time' => strtotime($dbRow['published_at']),
         'img_alt' => 'Фото публикации',
-        'images' => $images,
-        'has_count' => count($images) > 1
+        'images' => $images
     ];
 }
-
-function findPostInDatabase(PDO $connection, int $postId): ?array
-{
-    $postData = fetchPostById($connection, $postId);
-    if (!$postData) {
-        return null;
-    }
-
-    $images = fetchImagesByPostId($connection, $postId);
-
-    return formatPostData($postData, $images);
-}
-
 
 function getFeedPosts(PDO $connection): array
 {
@@ -91,7 +55,8 @@ function getFeedPosts(PDO $connection): array
         return [];
     }
 
-    $allImages = fetchAllImages($connection); $imagesByPost = [];
+    $allImages = fetchAllImages($connection);
+    $imagesByPost = [];
     foreach ($allImages as $img) {
         $imagesByPost[$img['post_id']][] = [
             'image_source' => $img['image_source'],
