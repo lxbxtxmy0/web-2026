@@ -57,7 +57,6 @@ main {
 }
 
 .create_post {
-    margin-top: 50px;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -183,7 +182,34 @@ textarea::placeholder {
     display: none;
 }
 
-
 .share.active {
     background: #222222;
+}
+
+.success {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font: 400 15px/18px 'MyGolos', Arial, sans-serif;
+}
+
+.success.active {
+    display: flex;
+}
+
+.create_post.hidden {
+    display: none;
+}
+
+.page_list {
+    font-family: 'MyGolos', Arial, sans-serif;
+    margin-top: 30px;
+
+}
+
+.error_message {
+    color: red;
+    margin-bottom: 15px;
+    display: none;
 }

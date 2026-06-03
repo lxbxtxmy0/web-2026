@@ -1,7 +1,5 @@
 <?php
 
-
-
 function connectDatabase(): PDO
 {
     $dsn = 'mysql:host=localhost;dbname=blog;charset=utf8mb4';
@@ -33,7 +31,6 @@ function fetchAllImages(PDO $connection): array
 
 function formatPostData(array $dbRow, array $images): array
 {
-    //временно
     $userId = 1;
     return [
         'id' => $dbRow['id'],

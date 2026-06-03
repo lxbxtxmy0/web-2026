@@ -16,7 +16,7 @@
         <p class="error_field"></p>
         <div class="email">
             <label for="email-field">Электропочта</label>
-            <input type="email" class="email_field" id="email-field">
+            <input type="text" class="email_field" id="email-field">
             <p class="example">Введите электропочту в формате *****@***.**</p>
         </div>
         <div class="password">

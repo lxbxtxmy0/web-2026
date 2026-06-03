@@ -7,6 +7,7 @@
     <script src="slider.js"></script>
     <script src="modalWindow.js"></script>
     <script src="buttonMore.js"></script>
+    <script src="likes.js"></script>
 </head>
 <body>
 <div class="page">

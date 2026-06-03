@@ -51,7 +51,7 @@ if ($currentPost == null) {
                 <div class="author">
                     <img src="../<?= $currentPost['avatar_image'] ?>" alt="Аватар" height="32" width="32"
                          class="photo_avatar">
-                    <a href="../<?= $currentPost['profile_link']?>"><?= htmlspecialchars($currentPost['author']) ?></a>
+                    <a href="../<?= $currentPost['profile_link'] ?>"><?= htmlspecialchars($currentPost['author']) ?></a>
                 </div>
                 <?php if ($currentPost['can_edit']): ?>
                     <button>

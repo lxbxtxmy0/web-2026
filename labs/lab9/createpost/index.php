@@ -20,9 +20,12 @@
         </a>
     </nav>
     <main>
+        <h1 class="page_title">Новая публикация</h1>
+        <p class="success">Пост успешно сохранён!</p>
+        <p class="error_message"></p>
         <form class="create_post">
             <input type="file" id="file_input" class="hidden_input">
-            <div class="post_container" >
+            <div class="post_container">
                 <div class="add_photo_field" data-current-index="0">
                     <div class="add_photo_block">
                         <span class="img_icon">🖼️</span>
@@ -41,7 +44,7 @@
                 </button>
                 <textarea maxlength="400" placeholder="Добавьте подпись..." class="description_field" id="post-description" name="description"></textarea>
             </div>
-            <button type="submit" class="share">Поделиться</button>
+            <button type="submit" class="share" id="submit_btn">Поделиться</button>
         </form>
     </main>
 </div>

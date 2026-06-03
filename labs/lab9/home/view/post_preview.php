@@ -5,15 +5,15 @@
             <a href="<?php if ($post['can_edit']) echo '../profile' ?>"><?= htmlspecialchars($post['author']) ?></a>
         </div>
         <?php if ($post['can_edit']): ?>
-            <button type="button">
+            <a href="../createpost/?id=<?= $post['id']?>">
                 <img src="../src/img/edit_icon.svg" alt="Редактирование публикации" height="24" width="24">
-            </button>
+            </a>
         <?php endif; ?>
     </div>
     <div class="photo" data-current-index="0">
         <div class="photos">
             <?php foreach ($post['images'] as $image): ?>
-                <img src="../src/<?= $image['image_source'] ?>" alt="<?= $post['img_alt'] ?>" height="474" width="474">
+                <img src="<?= $image['image_source'] ?>" alt="<?= $post['img_alt'] ?>" height="474" width="474">
             <?php endforeach; ?>
         </div>
         <?php if (count($post['images']) > 1): ?>

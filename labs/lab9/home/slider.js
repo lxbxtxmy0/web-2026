@@ -1,11 +1,11 @@
 function changeSlide(photoBlock, images, indicator, len, step, separator) {
-    let idx = parseInt(photoBlock.getAttribute('data-current-index')) || 0;
-    images[idx].classList.remove('active');
-    idx = (idx + step + len) % len;
-    images[idx].classList.add('active');
-    photoBlock.setAttribute('data-current-index', idx);
+    let index = parseInt(photoBlock.getAttribute('data-current-index')) || 0;
+    images[index].classList.remove('active');
+    index = (index + step + len) % len;
+    images[index].classList.add('active');
+    photoBlock.setAttribute('data-current-index', index);
     if (indicator) {
-        indicator.innerHTML = "" + (idx + 1) + separator + len;
+        indicator.innerHTML = "" + (index + 1) + separator + len;
     }
 }
 

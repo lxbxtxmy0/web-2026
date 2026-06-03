@@ -57,5 +57,7 @@ VALUES (
     2
 );
 
-insert into image (image_source, sort_order, post_id) values ('img/hpi.jpg', 2, 1);
+insert into image (image_source, sort_order, post_id) values ('img/hpi.jpg', 3, 1);
+
+update post set description = 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном снегом по ручку двери...»' where id = 1;
 
