@@ -18,15 +18,15 @@ function fetchAllPosts(PDO $connection): array
         ON p.user_id = u.id
         ORDER BY p.published_at DESC
     SQL;
-    $stmt = $connection->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $statement = $connection->query($sql);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function fetchAllImages(PDO $connection): array
 {
     $sql = "SELECT post_id, image_source, sort_order FROM image ORDER BY sort_order";
-    $stmt = $connection->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $statement = $connection->query($sql);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function formatPostData(array $dbRow, array $images): array

@@ -26,7 +26,7 @@
         <form class="create_post">
             <input type="file" id="file_input" class="hidden_input">
             <div class="post_container">
-                <div class="add_photo_field" data-current-index="0">
+                <div class="add_photo_field">
                     <div class="add_photo_block">
                         <span class="img_icon">🖼️</span>
                         <button type="button" id="black_btn" class="add_button">Добавить фото</button>

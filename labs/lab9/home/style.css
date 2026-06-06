@@ -96,8 +96,6 @@ main {
     display: block;
 }
 
-
-
 .photos img {
     display: none;
 }
@@ -200,7 +198,6 @@ main {
     left: 0;
     width: 100vw;
     height: 100vh;
-
     display: none;
     flex-direction: column;
     justify-content: center;

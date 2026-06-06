@@ -42,8 +42,8 @@ try {
     $connection->beginTransaction();
 
     $sqlPost = "INSERT INTO post (user_id, description, count_likes) VALUES (:user, :description, 0)";
-    $stmt = $connection->prepare($sqlPost);
-    $stmt->execute([
+    $statement = $connection->prepare($sqlPost);
+    $statement->execute([
         'user' => $data['user'],
         'description' => $data['description']
     ]);
@@ -51,13 +51,14 @@ try {
     $postId = $connection->lastInsertId();
 
     $sqlImage = "INSERT INTO image (post_id, image_source) VALUES (:post_id, :source)";
-    $stmt = $connection->prepare($sqlImage);
-    $stmt->execute([
+    $statement = $connection->prepare($sqlImage);
+    $statement->execute([
         'post_id' => $postId,
         'source' => $uploadFileForDB
     ]);
 
     $connection->commit();
+    http_response_code(200);
     echo json_encode(['status' => 'success', 'post_id' => $postId], JSON_UNESCAPED_UNICODE);
 
 } catch (Exception $e) {
@@ -65,3 +66,4 @@ try {
     http_response_code(500);
     echo json_encode(['error' => 'Ошибка БД: ' . $e->getMessage()], JSON_UNESCAPED_UNICODE);
 }
+

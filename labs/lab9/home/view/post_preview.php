@@ -10,7 +10,7 @@
             </a>
         <?php endif; ?>
     </div>
-    <div class="photo" data-current-index="0">
+    <div class="photo">
         <div class="photos">
             <?php foreach ($post['images'] as $image): ?>
                 <img src="<?= $image['image_source'] ?>" alt="<?= $post['img_alt'] ?>" height="474" width="474">

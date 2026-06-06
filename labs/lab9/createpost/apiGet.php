@@ -15,18 +15,19 @@ if (!$postId) {
 
 try {
     $connection = connectDatabase();
-
-    $stmt = $connection->prepare("SELECT description FROM post WHERE id = :id");
-    $stmt->execute(['id' => $postId]);
-    $post = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sqlPostResponse = "SELECT description FROM post WHERE id = :id";
+    $statement = $connection->prepare($sqlPostResponse);
+    $statement->execute(['id' => $postId]);
+    $post = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (!$post) {
         throw new Exception('Пост не найден');
     }
 
-    $stmtImg = $connection->prepare("SELECT image_source FROM image WHERE post_id = :post_id");
-    $stmtImg->execute(['post_id' => $postId]);
-    $imagesRaw = $stmtImg->fetchAll(PDO::FETCH_ASSOC);
+    $sqlImageResponse = "SELECT image_source FROM image WHERE post_id = :post_id";
+    $statementImg = $connection->prepare($sqlImageResponse);
+    $statementImg->execute(['post_id' => $postId]);
+    $imagesRaw = $statementImg->fetchAll(PDO::FETCH_ASSOC);
 
     $imageUrls = [];
     foreach ($imagesRaw as $img) {
@@ -43,3 +44,4 @@ try {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
 }
+
