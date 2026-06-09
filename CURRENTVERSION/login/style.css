@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'MyGolos';
+    src: url('../src/fonts/golos-ui_regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    align-items: center;
+    gap: 150px;
+}
+
+.login {
+    justify-self: start;
+    width: 343px;
+    display: grid;
+    height: 251px;
+    gap: 16px;
+    font: 400 15px/18px 'MyGolos', Arial, sans-serif;
+    letter-spacing: -0.15px;
+    color: #222222;
+}
+
+.email {
+    width: 100%;
+    height: 88px;
+    display: grid;
+    grid-template-rows: 18px 44px 48px;
+    gap: 5px;
+}
+
+.password {
+    width: 100%;
+    height: 67px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 18px 44px;
+    gap: 5px;
+}
+
+.hide_password {
+    position: absolute;
+    top: 33px;
+    right: 12px;
+}
+
+.email_field, .password_field {
+    width: 100%;
+    padding: 13px 12px;
+    border-radius: 10px;
+    background-color: #F2F3F5;
+    border: none;
+}
+
+.example {
+    width: 100%;
+    color: #808080;
+    font: 400 13px/16px 'MyGolos', Arial, sans-serif;
+    letter-spacing: -0.08px;
+}
+
+.continue {
+    width: 100%;
+    margin-top: 16px;
+    height: 48px;
+    font: 500 15px/18px 'MyGolos', Arial, sans-serif;
+    color: #FFFFFF;
+    background-color: #222222;
+    border-radius: 10px;
+}
+
+h1 {
+    font: 700 140px/180px 'MyGolos', Arial, sans-serif;
+    letter-spacing: -1.5px;
+    color: #222222;
+    position: absolute;
+    bottom: 427px;
+    right: 169px;
+}
+
+
+.welcome_side {
+    justify-self: end;
+    position: relative;
+    width: 501px;
+    height: 501px;
+}
+
+.img_eye_off {
+    width: 24px;
+    height: 24px;
+}
+.welcome_img {
+    width: 100%;
+    height: 100%;
+}
+
+.error_field {
+    width: 100%;
+    background: #FFECEC;
+    color: #740000;
+    font: 400 15px/18px 'MyGolos', Arial, sans-serif;
+    letter-spacing: -0.15px;
+    height: 42px;
+    border-radius: 10px;
+    padding: 12px;
+    display: none;
+}
+
+.error_field.active {
+    display: block;
+}
+
+.email_field.error, .password_field.error {
+    outline: none;
+    border: 2px solid #E64646;
+}
+
+.example.error {
+    color: #E64646;
+}
